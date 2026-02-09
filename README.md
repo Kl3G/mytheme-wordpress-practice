@@ -171,19 +171,15 @@ is_home = false
 is_page = true  
 결과 = Page Shown On Front  
 
----  
-
-# Singular 요청 분기  
-## Posts page (A static page)  
+### Posts page (A static page)  
 is_front_page = false  
 is_posts_page = true  
 is_home = true  
 is_page = false (page처럼 보이지만, posts 목록으로 인식.)  
 
-## ★ WordPress는 Page Type을 판정하지 않는다.  
+### ★ WordPress는 Page Type을 판정하지 않는다.  
 WordPress는 flags만 만든다, Page Type은 그 flags를 사람이 묶은 개념.  
 즉, Page Type = 사람이 Conditional Flags를 조합해서 붙인 추상적 개념.  
 Page type은 WordPress 요청 분기의 개념적 분류(카테고리).  
 WordPress는 요청을 받으면 Conditional Flags를 세팅하고.  
 template-loader.php는 이걸 바탕으로 템플릿을 선택.
-
