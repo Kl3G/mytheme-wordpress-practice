@@ -1,0 +1,25 @@
+{
+  "name": "original",
+  "version": "1.0.0",
+  "description": "- https://developer.wordpress.org/reference\r ---",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kl3G/mytheme-wordpress-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kl3G/mytheme-wordpress-practice/issues"
+  },
+  "homepage": "https://github.com/Kl3G/mytheme-wordpress-practice#readme",
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.97.3"
+  }
+}

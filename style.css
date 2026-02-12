@@ -1,38 +1,3 @@
 /*
 Theme Name: Original
 */
-
-html {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-p,
-h1, h3, h4, h5, h6 {
-    margin: 0;
-}
-
-h2 {
-    margin: 100px;
-}
-
-header,
-footer {
-    text-align: center;
-    background: #29367c;
-    height: 15%;
-}
-
-main {
-    text-align: center;
-    height: 70%;
-}
-
-div {
-    text-align: center;
-}
