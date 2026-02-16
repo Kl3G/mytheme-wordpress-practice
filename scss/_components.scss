@@ -1,0 +1,32 @@
+@use 'variables';
+@use 'mixins';
+
+.card {
+    background: #2a2a2a;
+    border-radius: variables.$radius;
+    box-shadow: variables.$shadow;
+    padding: 1.5rem;
+
+    &__title {
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+    }
+
+    &__content {
+        font-size: 0.9rem;
+    }
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 기본 설정 = 1fr, 3개 생성
+    gap: 2rem;
+
+    @include mixins.breakpoint(tablet) {
+        grid-template-columns: repeat(2, 1fr); // tablet = 1fr, 2개 생성
+    }
+
+    @include mixins.breakpoint(mobile) { // mobile = 1fr, 1개 생성
+        grid-template-columns: 1fr;
+    }
+}

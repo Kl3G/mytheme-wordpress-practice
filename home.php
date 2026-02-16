@@ -2,15 +2,15 @@
 
 <?php get_header(); ?>
 
-<h1>This is home.php (Posts page)</h1>
+<h1>This is Home</h1>
 
 <?php if (have_posts()) : // Checks if there are more posts to show ?>
     <?php while (have_posts()) : the_post(); // Moves to the next post and sets it as the current post ?>
-        <article>
-            <a href="<?php the_permalink(); ?>">
-                <h2><?php the_title(); ?> (post title)</h2>
+        <div class="card-grid">
+            <a class="card" href="<?php the_permalink(); ?>">
+                <h2 class="card__title"><?php the_title(); ?></h2>
             </a>
-        </article>
+        </div>
     <?php endwhile; ?>
 <?php else : ?>
     <p>No posts.</p>

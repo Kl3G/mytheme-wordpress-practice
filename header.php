@@ -10,7 +10,7 @@
 <body <?php body_class(); ?>>
 
     <header>
-        <h1>Original Theme (Header)</h1>
+        <h1>Clean Arichitecture</h1>
     </header>
 
-    <main>
+    <main class="container">

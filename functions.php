@@ -1,26 +1,48 @@
 <?php
 
-// ※ Hook types
-// 1. init
-// 2. wp_enqueue_scripts = register CSS, JS
-// 3. add_meta_boxes
-// 4. save_post_{slug} = save the meta data together with the post to separate table
+/* 
+리소스 등록은 템플릿 파일에서 하면 안 된다.
+Template 실행은 이미 출력 단계라서 리소스 등록하기에 늦다.
+functions.php에 함수로 등록해 두면,
+WordPress가 PHP Template 실행 전에 등록해 준다. 
+*/
+
+// ※ Frontend request flow
+// index.php
+// → wp-blog-header.php
+    // → wp-load.php
+        // → wp-settings.php (**after_setup_theme**, **init**, **wp_loaded**)
+    // → wp() (**wp**)
+// → template-loader.php
+    // → single.php(or Another template) include
+        // → get_header()
+            // → header.php
+                // → wp_head() (**wp_head**)
+                    // wp_enqueue_scripts() (**wp_enqueue_scripts**)
+                    // wp_enqueue_scripts() is hooked at **wp_head**
+
+// ※ Admin editor flow
+// add_meta_boxes = wp-admin 편집 화면 렌더링 시
+// save_post_{post_type} = wp-admin에서 post|page 저장(reg,) 시
+    // save the meta data together with the post to separate(wp_posts) table
 
 // Enqueue styles
 function original_enqueue_styles() {
-    wp_enqueue_style( // 현재 요청에서 사용할 CSS 파일을 스타일 관리 시스템에 등록.
-        'original-style', // WordPress가 이 CSS 파일을 관리할 때 사용하는 이름.
-        get_template_directory_uri() . '/css/style.css',
+    wp_enqueue_style( // CSS file을 WordPress 전역 style 관리 시스템에 등록.
+        'original-style', // 해당 CSS file을 관리할 때 사용하는 이름.
+        get_template_directory_uri() . '/assets/css/style.css',
         // 1. 현재 테마 폴더의 URL을 반환.
         // 2. get_stylesheet_uri() = 현재 활성화된 테마 폴더 안의 style.css 파일 URL 반환.
         array(), // 이 CSS보다 먼저 로드되어야 하는 CSS의 이름 목록.
         filemtime(get_stylesheet_directory() . '/style.css')
-        // CSS 수정 시 브라우저가 새 파일을 받게 함.
+        // cache 문제 해결(CSS 파일의 마지막 수정 시간을 버전값으로 사용).
     );
 }
 add_action('wp_enqueue_scripts', 'original_enqueue_styles');
 // wp_enqueue_scripts = WordPress가 내부에서 CSS/JS 등록하는 단계
-// ※ wp_enqueue_scripts는 page를 렌더링 할 때 항상 거친다.
+// ※ wp_enqueue_scripts는 page를 렌더링 할 때 항상 발생한다.
+
+
 
 // Register custom post type
 function register_concept_cpt() {
@@ -41,10 +63,15 @@ function register_concept_cpt() {
 }
 add_action('init', 'register_concept_cpt');
 
+
+
+// Enable thumbnail support
 function theme_setup() {
-    add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails'); // 테마 지원 기능 선언 (template 실행 전 호출必)
 }
 add_action('after_setup_theme', 'theme_setup');
+
+
 
 // HTML for meta box
 function render_concept_meta_box($post) {
@@ -65,6 +92,8 @@ function render_concept_meta_box($post) {
     <?php
 }
 
+
+
 // Register meta box
 function add_concept_meta_box() {
     add_meta_box(
@@ -78,7 +107,9 @@ function add_concept_meta_box() {
 }
 add_action('add_meta_boxes', 'add_concept_meta_box');
 
-//
+
+
+// Save custom meta data for the concept post type
 function save_concept_meta($post_id) {
     
     // 자동 저장될 때 meta data 저장 방지, 의도치 않은 데이터가 저장될 수 있음.
