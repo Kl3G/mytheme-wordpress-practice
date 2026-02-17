@@ -27,14 +27,14 @@ WordPress가 PHP Template 실행 전에 등록해 준다.
     // save the meta data together with the post to separate(wp_posts) table
 
 // Enqueue styles
-function original_enqueue_styles() {
+function original_enqueue_styles() { // ($handle, $src, $deps, $ver, $media);
     wp_enqueue_style( // CSS file을 WordPress 전역 style 관리 시스템에 등록.
         'original-style', // 해당 CSS file을 관리할 때 사용하는 이름.
         get_template_directory_uri() . '/assets/css/style.css',
         // 1. 현재 테마 폴더의 URL을 반환.
         // 2. get_stylesheet_uri() = 현재 활성화된 테마 폴더 안의 style.css 파일 URL 반환.
         array(), // 이 CSS보다 먼저 로드되어야 하는 CSS의 이름 목록.
-        filemtime(get_stylesheet_directory() . '/style.css')
+        filemtime(get_stylesheet_directory() . '/assets/css/style.css')
         // cache 문제 해결(CSS 파일의 마지막 수정 시간을 버전값으로 사용).
     );
 }
