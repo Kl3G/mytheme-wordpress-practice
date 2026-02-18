@@ -64,6 +64,22 @@ function register_concept_cpt() {
 add_action('init', 'register_concept_cpt');
 
 
+// Register custom taxonomy
+function register_concept_layer_taxonomy() {
+
+    register_taxonomy( // ($taxonomy name(will be stored in DB), $object_type, $args)
+        'layer', 
+        'concept',
+        [
+            'label' => 'Layer', // for display in the Admin UI
+            'hierarchical' => true, // allow parent–child terms
+            'public' => true,
+            'rewrite' => ['slug' => 'concept-layer']
+        ]
+    );
+}
+add_action('init', 'register_concept_layer_taxonomy');
+
 
 // Enable thumbnail support
 function theme_setup() {
@@ -79,7 +95,7 @@ function render_concept_meta_box($post) {
     <p>
         <label for="layer">Layer</label>
         <select name="concept_layer" id="layer">
-            <option value="entity">Entity</option>
+            <option value="entities">Entity</option>
             <option value="usecase">Use Case</option>
             <option value="interface">Interface Adapter</option>
         </select>
