@@ -33,7 +33,7 @@ function original_enqueue_styles() { // ($handle, $src, $deps, $ver, $media);
         get_template_directory_uri() . '/assets/css/style.css',
         // 1. 현재 테마 폴더의 URL을 반환.
         // 2. get_stylesheet_uri() = 현재 활성화된 테마 폴더 안의 style.css 파일 URL 반환.
-        array(), // 이 CSS보다 먼저 로드되어야 하는 CSS의 이름 목록.
+        [], // 이 CSS보다 먼저 로드되어야 하는 CSS의 이름 목록.
         filemtime(get_stylesheet_directory() . '/assets/css/style.css')
         // cache 문제 해결(CSS 파일의 마지막 수정 시간을 버전값으로 사용).
     );
@@ -46,33 +46,32 @@ add_action('wp_enqueue_scripts', 'original_enqueue_styles');
 
 // Register custom post type
 function register_concept_cpt() {
-    register_post_type('concept', array( // custom post type 등록.
-        'labels' => array( // 관리자 화면에 표시될 텍스트 설정.
+    register_post_type('concept', [ // custom post type 등록.
+        'labels' => [ // 관리자 화면에 표시될 텍스트 설정.
             'name' => 'Concepts', // 복수형 표시 이름.
             'singular_name' => 'Concept', // 단수형 표시 이름.
             // ※ 기본 문자열이 “조합형으로 만들어지는 label”에만 영향(고정 문자열X).
             'add_new_item' => 'Add Concept', // 대표적인 고정 문자열.
-        ),
+        ],
         'public' => true, // 외부 공개 여부.
-        'rewrite' => array('slug' => 'concept'), // CPT single rewrite(permastruct slug).
+        'rewrite' => ['slug' => 'concept'], // CPT single rewrite(permastruct slug).
         'has_archive' => true, // CPT acrhive rewrite.
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'), // 입력창 구조.
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'], // 입력창 구조.
         'menu_position' => 5, // 관리자 메뉴에 위치할 순서.
         'menu_icon' => 'dashicons-lightbulb' // concept 표시 아이콘.
-    ));
+    ]);
 }
 add_action('init', 'register_concept_cpt');
 
 
 // Register custom taxonomy
 function register_concept_layer_taxonomy() {
-
-    register_taxonomy( // ($taxonomy name(will be stored in DB), $object_type, $args)
-        'layer', 
+    register_taxonomy( // (1.$taxonomy name, 2.$object_type, 3.$args)
+        'layer', // will be stored in wp_term_taxonomy.taxonomy
         'concept',
         [
             'label' => 'Layer', // for display in the Admin UI
-            'hierarchical' => true, // allow parent–child terms
+            'hierarchical' => true, // This option extends the rewrite rule for parent–child terms.
             'public' => true,
             'rewrite' => ['slug' => 'concept-layer']
         ]
