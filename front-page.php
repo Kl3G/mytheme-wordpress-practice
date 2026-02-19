@@ -1,18 +1,19 @@
-<?php //front-page.php ?>
+<?php //front-page.php 
+
+// Checks if there are more posts to show
+// Moves to the next post and sets it as the current post
+?>
 
 <?php get_header(); ?>
 
-<h1>This is Front-page</h1>
+<aside>
+    aside
+</aside>
+<article>
+    This is Front-page
+</article>
 
-<?php if (have_posts()) : // Checks if there are more posts to show ?>
-    <?php while (have_posts()) : the_post(); // Moves to the next post and sets it as the current post ?>
-        <div>
-            <h2 class="card__title"><?php the_title(); ?></h2>
-            <?php the_content(); ?>
-        </div>
-    <?php endwhile; ?>
-<?php else : ?>
-    <p>No posts.</p>
-<?php endif; ?>
+
 
 <?php get_footer(); ?>
+
