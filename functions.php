@@ -54,8 +54,8 @@ function register_concept_cpt() {
             'add_new_item' => 'Add Concept', // 대표적인 고정 문자열.
         ],
         'public' => true, // 외부 공개 여부.
-        'rewrite' => ['slug' => 'concept'], // CPT single rewrite(permastruct slug).
-        'has_archive' => true, // CPT acrhive rewrite.
+        'rewrite' => ['slug' => 'concept'], // CPT single rewrite.
+        'has_archive' => false, // CPT acrhive rewrite. if true, the archive page uses the rewrite slug
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt'], // 입력창 구조.
         'menu_position' => 5, // 관리자 메뉴에 위치할 순서.
         'menu_icon' => 'dashicons-lightbulb' // concept 표시 아이콘.
