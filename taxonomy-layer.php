@@ -2,6 +2,14 @@
 
 <?php get_header(); ?>
 
-taxonomy-layer
+<aside>
+
+</aside>
+
+<section>
+    <article>
+
+    </article>
+</section>
 
 <?php get_footer(); ?>
