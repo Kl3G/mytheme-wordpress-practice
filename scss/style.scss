@@ -1,0 +1,19 @@
+// 순서가 상당히 중요하다고 할 수 있겠다
+
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+@use 'base/base';
+@use 'base/reset';
+@use 'base/typography';
+
+@use 'layout/header';
+@use 'layout/nav';
+@use 'layout/main';
+@use 'layout/grid';
+@use 'layout/footer';
+
+@use 'components/card';
+@use 'components/card-grid';
+
+@use 'pages/taxonomy-layer'; // 여기서 덮어 쓴다

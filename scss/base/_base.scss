@@ -1,0 +1,7 @@
+// 사이트 전체 기본 스타일 설정
+@use '../abstracts/variables' as v;
+
+body {
+    background-color: v.$color-background;
+    color: v.$color-font;
+}
