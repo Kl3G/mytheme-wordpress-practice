@@ -1,6 +1,6 @@
 body {
   background-color: #212121;
-  color: #26b126;
+  color: #dadada;
 }
 
 * {
@@ -17,6 +17,10 @@ body {
 ul,
 ol {
   list-style: none;
+}
+
+html {
+  font-size: 100%;
 }
 
 body {

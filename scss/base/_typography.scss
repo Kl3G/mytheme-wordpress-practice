@@ -1,5 +1,9 @@
 // 전역 텍스트 규칙
 
+html {
+    font-size: 100%; // 사용자의 브라우저 설정을 존중
+}
+
 body {
     line-height: 2;
 }

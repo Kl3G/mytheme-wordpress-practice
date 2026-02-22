@@ -1,2 +1,20 @@
+// Colors
 $color-background: #212121;
-$color-font: #26b126;
+$color-text: #dadada;
+$color-primary: #26b126;
+
+// Spacing
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+
+// Radius
+$radius-sm: 8px;
+$radius-md: 16px;
+
+// Shadow
+$shadow-sm: 4px 4px 40px 0 rgba(0, 0, 0, 0.15);
+
+// Breakpoint
+$bp-tablet: 768px; // 태블릿
+$bp-desktop: 1024px; // 노트북
