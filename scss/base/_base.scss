@@ -2,6 +2,21 @@
 @use '../abstracts/variables' as v;
 
 body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: v.$color-background;
     color: v.$color-text;
+}
+
+header {
+    color: v.$color-primary;
+}
+
+aside {
+    color: v.$color-primary;
+}
+
+footer {
+    background-color: v.$color-second;
 }

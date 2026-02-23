@@ -1,0 +1,16 @@
+main {
+    flex: 8.5;
+    padding: 0.5rem;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+
+    aside {
+        flex: 1;
+    }
+
+    article {
+        flex: 4;
+    }
+}
