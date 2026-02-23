@@ -8,6 +8,16 @@ body {
     line-height: 2;
 }
 
+article ul {
+    list-style: disc; // list-style-position 아래 적으면 덧쓰인다
+    list-style-position: inside;
+}
+
+article ol {
+    list-style: decimal;
+    list-style-position: inside;
+}
+
 h1, h2, h3 {
     font-size: 3rem;
     font-weight: 1000;

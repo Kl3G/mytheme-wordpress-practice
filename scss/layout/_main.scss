@@ -1,6 +1,6 @@
 main {
     flex: 8.5;
-    padding: 0.5rem;
+    padding: 1rem;
     display: flex;
     margin: 0 auto;
     width: 100%;
@@ -8,9 +8,11 @@ main {
 
     aside {
         flex: 1;
+        padding: 1rem;
     }
 
     article {
         flex: 4;
+        padding: 1rem;
     }
 }

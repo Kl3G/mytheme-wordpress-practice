@@ -17,6 +17,20 @@ aside {
     color: v.$color-primary;
 }
 
+a {
+    color: v.$color-primary;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+  color: v.$color-primary;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 footer {
     background-color: v.$color-second;
 }
