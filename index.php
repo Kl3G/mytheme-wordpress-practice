@@ -2,8 +2,8 @@
 
 <?php get_header(); ?>
 
-<h1>This is Index</h1>
-
-<h2>Original theme is active.</h2>
+<article>
+    Original theme is active.
+</article>
 
 <?php get_footer(); ?>
