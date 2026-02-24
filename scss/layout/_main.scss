@@ -1,6 +1,8 @@
+@use '../abstracts/variables' as v;
+
 main {
     flex: 8.75;
-    padding: 1rem;
+    padding: v.$space-md;
     display: flex;
     margin: 0 auto;
     width: 100%;
@@ -8,11 +10,11 @@ main {
 
     aside {
         flex: 1;
-        padding: 1rem;
+        padding: v.$space-md;
     }
 
     article {
         flex: 4;
-        padding: 1rem;
+        padding: v.$space-md;
     }
 }

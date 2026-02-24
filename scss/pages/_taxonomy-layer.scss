@@ -1,0 +1,27 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+section {
+    flex: 4;
+    padding: v.$space-md;
+    display: grid;
+    grid-auto-rows: 120px;
+    gap: v.$space-lg;
+}
+
+// 웹은 보통 세로로 무한히 늘어나는 구조라서
+// grid-template-rows로 행을 고정할 필요가 거의 없다.
+
+// Webは通常、縦に無限に伸びる構造で、
+// grid-template-rowsで行を固定する必要はほとんどない。
+@include m.respond(tablet) {
+    section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include m.respond(desktop) {
+    section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

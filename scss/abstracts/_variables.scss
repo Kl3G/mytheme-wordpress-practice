@@ -4,17 +4,19 @@ $color-text: #dadada;
 $color-primary: #259225;
 $color-second: #424242;
 
+// Font Size
+$font-md: 1.5rem;
+$font-lg: 3rem;
+
 // Spacing
-$space-sm: 0.5rem;
 $space-md: 1rem;
-$space-lg: 2rem;
+$space-lg: 2.5rem;
 
 // Radius
 $radius-sm: 8px;
-$radius-md: 16px;
 
 // Shadow
-$shadow-sm: 4px 4px 40px 0 rgba(0, 0, 0, 0.15);
+$shadow-sm: 15px 15px 0 0 rgba(0, 0, 0, 0.15);
 
 // Breakpoint
 $bp-tablet: 768px; // 태블릿

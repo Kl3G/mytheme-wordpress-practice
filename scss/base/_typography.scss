@@ -1,4 +1,5 @@
 // 전역 텍스트 규칙
+@use '../abstracts/variables' as v;
 
 html {
     font-size: 100%; // 사용자의 브라우저 설정을 존중
@@ -19,9 +20,9 @@ article ol {
 }
 
 .site-title {
-  font-size: 3rem;
+  font-size: v.$font-lg;
 }
 
 .post-title {
-  font-size: 1.5rem;
+  font-size: v.$font-md;
 }

@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as v;
+
+// 구조가 아닌 역할에 의존하자
+
+.card {
+    display: flex;
+    background-color: v.$color-second;
+    border-radius: v.$radius-sm;
+    box-shadow: v.$shadow-sm;
+
+    .card-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        color: v.$color-text;    
+            
+        .card-title {
+            overflow: hidden;
+        }
+
+        .card-date {
+            margin-top: auto;
+            margin-left: auto; 
+        }
+    }
+}

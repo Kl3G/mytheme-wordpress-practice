@@ -1,4 +1,6 @@
+@use '../abstracts/variables' as v;
+
 footer {
     flex: 0.25;
-    padding: 1rem;
+    padding: v.$space-md;
 }
