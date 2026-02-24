@@ -66,9 +66,12 @@ article ol {
   list-style-position: inside;
 }
 
-h1, h2, h3 {
+.site-title {
   font-size: 3rem;
-  font-weight: 1000;
+}
+
+.post-title {
+  font-size: 1.5rem;
 }
 
 p {
@@ -85,11 +88,11 @@ header h1 {
 header nav {
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 main {
-  flex: 8.5;
+  flex: 8.75;
   padding: 1rem;
   display: flex;
   margin: 0 auto;
@@ -116,7 +119,7 @@ main article {
   }
 }
 footer {
-  flex: 0.5;
+  flex: 0.25;
   padding: 1rem;
 }
 

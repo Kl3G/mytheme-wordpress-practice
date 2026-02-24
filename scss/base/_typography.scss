@@ -18,9 +18,12 @@ article ol {
     list-style-position: inside;
 }
 
-h1, h2, h3 {
-    font-size: 3rem;
-    font-weight: 1000;
+.site-title {
+  font-size: 3rem;
+}
+
+.post-title {
+  font-size: 1.5rem;
 }
 
 p {

@@ -10,7 +10,9 @@
 <body <?php body_class(); ?>>
 
     <header>
-        <h1><?php the_title(); ?></h1>
+        <h1 class="site-title">
+            <a href="/"><?php bloginfo('name'); ?></a>
+        </h1>
         <nav>
             <?php $terms = get_terms([
                 'taxonomy' => 'layer',
@@ -25,6 +27,9 @@
                     <?php echo $term->name ?>
                 </a>
             <?php endforeach; ?>
+            <a href="<?php echo get_permalink(11); ?>">
+                <?php echo get_the_title(11); ?>
+            </a>
         </nav>
     </header>
 
