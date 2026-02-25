@@ -6,7 +6,8 @@
 
 ## Themeの紹介  
 Robert C. MartinのClean Architectureを  
-学び、その内容を記録する個人メモのTheme。  
+学び、その内容を記録する個人メモのTheme。 
+#### (`Dummy data`が入っている)  
 #### Homepage
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/384b284d-9956-4ef5-bdd7-1e84d3e4d3ed" />
 
